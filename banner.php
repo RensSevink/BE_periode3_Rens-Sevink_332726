@@ -1,0 +1,1 @@
+<img id="banner" src="./img/YakuzaBanner.png" alt="banner" class="img-fluid">
