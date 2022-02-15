@@ -1,3 +1,17 @@
+<?php
+  if (isset($_GET["content"])) {
+    $active = $_GET["content"];
+  }
+  else {
+    $active = "";
+  }
+
+
+?>
+
+
+
+
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <div class="container-fluid">
     <a class="navbar-brand" href="#">Yakuza Fans</a>
@@ -7,13 +21,13 @@
     <div class="collapse navbar-collapse" id="navbarNavDropdown">
       <ul class="navbar-nav">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="./index.php?content=home">Home</a>
+          <a class="nav-link <?php if( $active == "home") {echo "active";} ?>" aria-current="page" href="./index.php?content=home">Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Games</a>
+          <a class="nav-link <?php if( $active == "games") {echo "active";} ?>" href="./index.php?content=games">Games</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Spin-Offs</a>
+          <a class="nav-link <?php if( $active == "spinoffs") {echo "active";} ?>" href="./index.php?content=spinoffs">Spin-Offs</a>
         </li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
