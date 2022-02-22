@@ -5,7 +5,7 @@
 
 
 
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<nav class="navbar navbar-expand-md navbar-light bg-light">
   <div class="container-fluid">
     <a class="navbar-brand" href="./index.php?content=home">Yakuza Fans</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -31,6 +31,14 @@
             <li><a class="dropdown-item <?php echo ($active == "playstation")? "active": "" ?>" href="./index.php?content=playstation">Playstation</a></li>
             <li><a class="dropdown-item <?php echo ($active == "pc")? "active": "" ?>" href="./index.php?content=pc">PC</a></li>
           </ul>
+        </li>
+      </ul>
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item">
+          <a class="nav-link <?php echo ($active == "register")? "active": "" ?>" aria-current="page" href="./index.php?content=register">register</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link <?php echo ($active == "login")? "active": "" ?>" href="./index.php?content=login">log in</a>
         </li>
       </ul>
     </div>
