@@ -24,7 +24,7 @@
             echo '<div class="alert alert-success mt-5 w-50 mx-auto" role="alert">
             Uw account is succesvol aangemaakt, u ontvangt een e-mail met de activatie link...
             </div>';
-        header("Refresh: 3; ./index.php?content=register");
+        header("Refresh: 3; ./index.php?content=login");
         break;
         default:
             header("Location: ./index.php?content=home");
