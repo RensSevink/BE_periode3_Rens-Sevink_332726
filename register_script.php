@@ -46,7 +46,6 @@
                         background-color: #dddddd;
                         font-size: 1.3em;
                     }
-
                 </style>
                     <title>Hello, world!</title>
                   </head>
@@ -58,7 +57,6 @@
                     <p>Met vriendelijke groet,</p>
                     <p>R. Sevink</p>
                     <p>CEO Yakuzafans INC.</p>
-
                     <!-- Optional JavaScript; choose one of the two! -->
                 
                     <!-- Option 1: Bootstrap Bundle with Popper -->

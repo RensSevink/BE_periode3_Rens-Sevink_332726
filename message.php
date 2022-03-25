@@ -26,6 +26,12 @@
             </div>';
         header("Refresh: 3; ./index.php?content=login");
         break;
+        case "hacker-alert" :
+            echo '<div class="alert alert-danger mt-5 w-50 mx-auto" role="alert">
+            U heeft geen rechten op deze pagina...
+            </div>';
+        header("Refresh: 3; ./index.php?content=home");
+        break;
         default:
             header("Location: ./index.php?content=home");
         break;
