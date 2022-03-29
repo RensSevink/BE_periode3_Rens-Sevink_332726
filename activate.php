@@ -19,7 +19,7 @@
           <div id="passwordHelpCheck" class="form-text">Ter controle voert u nogmaals u wachtwoord in...</div>
         </div>
         <input type="hidden" name="id" value="<?php echo $_GET["id"]; ?>">
-        <input type="hidden" name="id" value="<?php echo $_GET["pwh"]; ?>">
+        <input type="hidden" name="pwh" value="<?php echo $_GET["pwh"]; ?>">
         <button type="submit" class="btn btn-warning btn-lg w-100">Activeren</button>
       </form>
     </div>

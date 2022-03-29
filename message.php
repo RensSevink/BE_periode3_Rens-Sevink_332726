@@ -1,5 +1,7 @@
 <?php
     $alert = (isset($_GET["alert"]))? $_GET["alert"]: "default";
+    $id = (isset($_GET["id"]))? $_GET["id"]: "";
+    $pwh = (isset($_GET["pwh"]))? $_GET["pwh"]: "";
 
     switch($alert) {
         case "no-email" :
@@ -31,6 +33,24 @@
             U heeft geen rechten op deze pagina...
             </div>';
         header("Refresh: 3; ./index.php?content=home");
+        break;
+        case "password-empty" :
+            echo '<div class="alert alert-danger mt-5 w-50 mx-auto" role="alert">
+            U heeft een van beide wachtwoordvelden niet ingevoerd...
+            </div>';
+        header("Refresh: 3; ./index.php?content=activate&id=$id&pwh=$pwh");
+        break;
+        case "nomatch-password" :
+            echo '<div class="alert alert-danger mt-5 w-50 mx-auto" role="alert">
+            De twee ingevoerde wachtwoorden komen niet met elkaar over...
+            </div>';
+        header("Refresh: 3; ./index.php?content=activate&id=$id&pwh=$pwh");
+        break;
+        case "no-id-pwh-match" :
+            echo '<div class="alert alert-danger mt-5 w-50 mx-auto" role="alert">
+            U bent niet geregistreerd in de database, u wordt doorgestuurd naar de registratiepagina...
+            </div>';
+        header("Refresh: 3; ./index.php?content=register");
         break;
         default:
             header("Location: ./index.php?content=home");
