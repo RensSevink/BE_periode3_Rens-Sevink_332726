@@ -35,10 +35,10 @@
       </ul>
       <ul class="navbar-nav ms-auto">
         <li class="nav-item">
-          <a class="nav-link <?php echo ($active == "register")? "active": "" ?>" aria-current="page" href="./index.php?content=register">register</a>
+          <a class="nav-link <?php echo ($active == "register")? "active": "" ?>" aria-current="page" href="./index.php?content=register">Register</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link <?php echo ($active == "login")? "active": "" ?>" href="./index.php?content=login">log in</a>
+          <a class="nav-link <?php echo ($active == "login")? "active": "" ?>" href="./index.php?content=login">Log in</a>
         </li>
       </ul>
     </div>
