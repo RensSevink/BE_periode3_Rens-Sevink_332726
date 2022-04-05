@@ -20,16 +20,12 @@
         }
         else
         {
-            $password = "geheim";
-            $password_hash = password_hash($password, PASSWORD_BCRYPT);
-
-            $sql = "INSERT INTO `register` (`id`, `email`, `password`, `userrole`)
-            VALUES (NULL, '$email', '$password_hash', 'customer')";
+            $array = pwh_from_microtime();
+            $sql = "INSERT INTO `register` (`id`, `email`, `password`, `userrole`, `activated`)
+            VALUES (NULL, '$email', '{$array["password_hash"]}', 'customer', 0)";
             
             if (mysqli_query($conn, $sql)) {
-
                 $id = mysqli_insert_id($conn);
-
                 $to = $email;
                 $subject = "Activatielink voor uw account";
                 $message = '<!doctype html>
@@ -52,7 +48,8 @@
                   <body>
                     <h2>Beste gebruiker,</h2>
                     <p>U heeft zich onlangs geregistreerd voor de site www.yakuzafans.com</p>
-                    <p>Klik <a href="http://www.yakuzafans.com/index.php?content=activate&id=' . $id . '&pwh=' . $password_hash . '">hier</a> voor het activeren om wijzigen van het wachtwoord van uw account</p>
+                    <p>Klik <a href="http://www.yakuzafans.com/index.php?content=activate&id=' . $id . '&pwh=' . $array["password_hash"] . '">hier</a> voor het activeren om wijzigen van het wachtwoord van uw account</p>
+                    <p>Uw datum en tijd van registreren: '. $array["date"] . ' - '. $array["time"].'</p><br>
                     <p>Bedankt voor het registreren</p>
                     <p>Met vriendelijke groet,</p>
                     <p>R. Sevink</p>
