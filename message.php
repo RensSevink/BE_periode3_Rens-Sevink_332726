@@ -2,6 +2,7 @@
     $alert = (isset($_GET["alert"]))? $_GET["alert"]: "default";
     $id = (isset($_GET["id"]))? $_GET["id"]: "";
     $pwh = (isset($_GET["pwh"]))? $_GET["pwh"]: "";
+    $email = (isset($_GET["email"]))? $_GET["email"]: "";
 
     switch($alert) {
         case "no-email" :
@@ -73,6 +74,30 @@
         case "no-match-pwh" :
             echo '<div class="alert alert-danger mt-5 w-50 mx-auto" role="alert">
             Uw activatielinkgegevens zijn niet correct, registreer opnieuw...
+            </div>';
+        header("Refresh: 3; ./index.php?content=login");
+        break;
+        case "loginform-empty" :
+            echo '<div class="alert alert-danger mt-5 w-50 mx-auto" role="alert">
+            U heeft een van beide velden niet ingevuld, probeer opnieuw...
+            </div>';
+        header("Refresh: 3; ./index.php?content=login");
+        break;
+        case "email-unknown" :
+            echo '<div class="alert alert-danger mt-5 w-50 mx-auto" role="alert">
+            Dit e-mail is onbekend, probeer opnieuw...
+            </div>';
+        header("Refresh: 3; ./index.php?content=login");
+        break;
+        case "not-activated" :
+            echo '<div class="alert alert-danger mt-5 w-50 mx-auto" role="alert">
+            Uw account is nog niet geactiveerd, check uw e-mail <span class="badge badge-primary">' . $email . '</span> voor de activatielink van uw account...
+            </div>';
+        header("Refresh: 3; ./index.php?content=login");
+        break;
+        case "no-pw-match" :
+            echo '<div class="alert alert-danger mt-5 w-50 mx-auto" role="alert">
+            Uw ingevulde wachtwoord voor het e-mailadres <span class="badge badge-primary">' . $email . '</span> is niet correct, probeer opnieuw...
             </div>';
         header("Refresh: 3; ./index.php?content=login");
         break;
