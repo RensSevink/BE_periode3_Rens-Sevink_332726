@@ -27,6 +27,10 @@
             }
             else {
                 
+                
+                $_SESSION["id"] = $record["id"];
+                $_SESSION["userrole"] = $record["userrole"];
+
                 switch($record["userrole"]) {
                     case 'customer':
                         header("Location: ./index.php?content=c-home");

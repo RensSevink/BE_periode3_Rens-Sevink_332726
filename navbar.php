@@ -34,12 +34,47 @@
         </li>
       </ul>
       <ul class="navbar-nav ms-auto">
-        <li class="nav-item">
-          <a class="nav-link <?php echo ($active == "register")? "active": "" ?>" aria-current="page" href="./index.php?content=register">Register</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link <?php echo ($active == "login")? "active": "" ?>" href="./index.php?content=login">Log in</a>
-        </li>
+        <?php
+          if (isset($_SESSION["id"])) {
+            switch($_SESSION["userrole"]) {
+              case 'admin':
+                  echo '<li class="nav-item dropdown">
+                          <a class="nav-link dropdown-toggle '; echo (in_array($active, ["xbox", "playstation", "pc"]))? "active": ""; echo '" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                admin workbench
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                <li><a class="dropdown-item '; echo ($active == "a-users")? "active": ""; echo '" href="./index.php?content=a-users">users</a></li>
+                <li><a class="dropdown-item '; echo ($active == "playstation")? "active": ""; echo '" href="./index.php?content=resetpassword">reset password</a></li>
+              </ul>
+            </li>';
+            break;
+            case 'root':
+
+            break;
+            case 'customer':
+
+            break;
+            case 'moderator':
+
+            break;
+            default:
+
+            break;
+            }
+            echo '<li class="nav-item '; echo ($active == "logout") ? "active" : ""; echo '">
+            <a class="nav-link" href="./index.php?content=logout">Uitloggen</a>
+            </li>';
+          }
+          else {
+            echo '<li class="nav-item '; echo ($active == "register") ? "active" : ""; echo '">
+            <a class="nav-link" href="./index.php?content=register">Registreer</a>
+            </li>
+            <li class="nav-item '; echo ($active == "login") ? "active" : ""; echo '">
+            <a class="nav-link" href="./index.php?content=login">Inloggen</a>
+            </li>';
+          }
+        ?>
+        
       </ul>
     </div>
   </div>

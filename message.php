@@ -101,6 +101,12 @@
             </div>';
         header("Refresh: 3; ./index.php?content=login");
         break;
+        case "logout" :
+            echo '<div class="alert alert-success mt-5 w-50 mx-auto" role="alert">
+            Uw bent succesvol uitgelogd, u wordt nu doorgestuurd naar de home pagina...
+            </div>';
+        header("Refresh: 3; ./index.php?content=home");
+        break;
         default:
             header("Location: ./index.php?content=home");
         break;
