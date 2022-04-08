@@ -107,6 +107,18 @@
             </div>';
         header("Refresh: 3; ./index.php?content=home");
         break;
+        case "auth-error" :
+            echo '<div class="alert alert-danger mt-5 w-50 mx-auto" role="alert">
+            U bent uitgelogd, u wordt doorgestuurd naar de homepage...
+            </div>';
+        header("Refresh: 3; ./index.php?content=home");
+        break;
+        case "auth-error-user" :
+            echo '<div class="alert alert-danger mt-5 w-50 mx-auto" role="alert">
+            U heeft geen rechten op deze pagina, u wordt doorgestuurd naar de homepage...
+            </div>';
+        header("Refresh: 3; ./index.php?content=home");
+        break;
         default:
             header("Location: ./index.php?content=home");
         break;

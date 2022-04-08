@@ -20,4 +20,16 @@
 
         return array("password_hash" => $password_hash, "date" => $d, "time" => $t);
     }
+
+    function is_authorized($userroles)  {
+        if (!isset($_SESSION["id"])) {
+            return header("Location: ./index.php?content=message&alert=auth-error");
+        }
+        else if ( !in_array($_SESSION["userrole"], $userroles)) {
+            return header("Location: ./index.php?content=message&alert=auth-error-user");
+        }
+        else {
+            return true;
+        }
+    }
 ?>
